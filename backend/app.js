@@ -35,7 +35,7 @@ app.use((req, res, next) => {
 //Setting up rate limits
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 7,
+  max: 100,
   message: 'Too many requests!'
 })
 
