@@ -7,7 +7,7 @@ const { Console } = require('console');
 exports.createSauce = (req, res, next) => {
     req.body.sauce = JSON.parse(req.body.sauce);
     console.log(req.get('host'))
-    const url = req.protocol + '://' + req.get('host'); //???
+    const url = req.protocol + '://' + req.get('host'); 
     const newSauce = new modelSauce({
         name: req.body.sauce.name,
         description: req.body.sauce.description,
@@ -56,6 +56,7 @@ exports.getOneSauce = (req, res, next) => {
 //Modify the sauce on the database
 exports.modifySauce = (req, res, next) => {
   let sauce = {};
+  console.log(req.file);
   if (req.file) {
     modelSauce.findOne({_id: req.params.id})
     .then(asauce => {
